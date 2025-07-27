@@ -1,0 +1,121 @@
+/* Basic bubble styles */
+.chat-bubble {
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    position: relative;
+}
+
+/* Left-aligned bubble (incoming) */
+.chat-bubble.left {
+    background-color: #dcf8c6; /* Example color for incoming */
+    margin-right: auto;
+}
+
+/* Right-aligned bubble (outgoing) */
+.chat-bubble.right {
+    background-color: #cce4ff; /* Example color for outgoing */
+    margin-left: auto;
+    text-align: right;
+}
+
+/* Arrow for left bubble */
+.chat-bubble.left::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #dcf8c6;
+    border-bottom: 10px solid transparent;
+    left: -10px;
+    top: 10px;
+}
+
+/* Arrow for right bubble */
+.chat-bubble.right::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #cce4ff;
+    border-bottom: 10px solid transparent;
+    right: -10px;
+    top: 10px;
+}
+
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 450px}
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+  }
+  
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
+
+  
+
+  .bg-image-filtered {
+    background-image: url('https://wallpapercat.com/w/full/4/8/1/719123-2560x1440-desktop-hd-seoul-korea-background-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    filter: brightness(10%); /* Adjust the percentage for desired darkness */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional for fixed background */
+  }
+
+  .darkened-background-container {
+    position: relative; /* Important for positioning the pseudo-element */
+    /* Add your background image here or to a child element */
+    background-image: url('https://wallpapercat.com/w/full/4/8/1/719123-2560x1440-desktop-hd-seoul-korea-background-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    /* Define height or other dimensions for the container */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional for fixed background */
+  }
+
+  .darkened-background-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
+    z-index: 1; /* Place the overlay above the image */
+  }
+
+  /* Ensure your content is positioned above the overlay */
+  .darkened-background-container > * {
+    position: relative;
+    z-index: 2;
+  }
