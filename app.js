@@ -38,9 +38,11 @@ document.getElementById('send-button').addEventListener('click', function() {
 
         const messageContent = document.createElement('div');
         messageContent.textContent = messageText;
+        
 
         messageBubble.appendChild(messageContent);
         chatContainer.appendChild(messageBubble);
+        chatContainer.classList.add('chat-bubble', 'left'); 
 
         messageInput.value = ''; // Clear input
         chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to bottom
@@ -54,8 +56,6 @@ fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:
     document.getElementById("chatBox").innerHTML+=`<div id="resBubble" data-aos="fade-up-left">${marked.parse(result.candidates[0].content.parts[0].text)}</div>`
     })
   .catch((error) => console.error(error));
-
-
  
 
 }
